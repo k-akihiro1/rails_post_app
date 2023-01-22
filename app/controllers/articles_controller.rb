@@ -14,7 +14,11 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.save!
+    if @article.save
+      redirect_to article_path(@article), notice: "article was successfully created."
+    else
+      render action: :new, status: :unprocessable_entity
+    end
   end
 
   private
