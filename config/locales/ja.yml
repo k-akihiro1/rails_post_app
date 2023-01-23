@@ -1,0 +1,12 @@
+ja:
+  # DBに関連
+  activerecord:
+    # model名
+    models:
+      article: 記事
+
+    # modelのattribute名
+    attributes:
+      article:
+        title: タイトル
+        content: 本文
