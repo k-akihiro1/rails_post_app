@@ -144,6 +144,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.4)
       loofah (~> 2.19, >= 2.19.1)
+    rails-i18n (6.0.0)
+      i18n (>= 0.7, < 2)
+      railties (>= 6.0.0, < 7)
     railties (6.0.6)
       actionpack (= 6.0.6)
       activesupport (= 6.0.6)
@@ -217,6 +220,7 @@ DEPENDENCIES
   pry-rails
   puma (~> 4.1)
   rails (~> 6.0.3, >= 6.0.3.7)
+  rails-i18n (~> 6.0)
   sass-rails (>= 6)
   spring
   spring-watcher-listen (~> 2.0.0)
