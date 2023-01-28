@@ -72,6 +72,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.10.2)
+      devise (>= 4.8.0)
     erubi (1.12.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -226,6 +228,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   devise
+  devise-i18n
   jbuilder (~> 2.7)
   listen (~> 3.2)
   pg (>= 0.18, < 2.0)
