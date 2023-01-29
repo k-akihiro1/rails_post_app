@@ -2,23 +2,25 @@
 
 <h1>記事</h1>
 
-<table>
+<%= link_to '記事作成', new_article_path, class: "btn btn-info" %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>タイトル</th>
-      <th>本文</th>
-      <th colspan="3"></th>
+      <th scope="col">タイトル</th>
+      <th scope="col">内容</th>
     </tr>
   </thead>
-
   <tbody>
     <% @articles.each do |article| %>
       <tr>
         <td><%= article.title %></td>
         <td><%= article.content %></td>
-        <td><%= link_to '詳細', article %></td>
-        <td><%= link_to '編集', edit_article_path(article) %></td>
-        <td><%= link_to '削除', article, method: :delete, data: { confirm: '削除しますか？' } %></td>
+        <td>
+          <%= link_to '詳細', article, class: "btn btn-success" %>
+          <%= link_to '編集', edit_article_path(article), class: "btn btn-warning" %>
+          <%= link_to '削除', article, class: "btn btn-danger", method: :delete, data: { confirm: '削除しますか？' } %>
+        </td>
       </tr>
     <% end %>
   </tbody>
