@@ -33,7 +33,6 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @article.destroy
     redirect_to articles_url, notice: "#{t('activerecord.models.article')}を削除しました。"
   end
