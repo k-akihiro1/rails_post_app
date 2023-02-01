@@ -13,7 +13,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     if @article.save
       redirect_to article_path(@article), notice: "#{t('activerecord.models.article')}を作成しました。"
     else
@@ -22,12 +22,12 @@ class ArticlesController < ApplicationController
   end
 
   def edit
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
   end
 
     # PATCH/PUT /sample_articles/1 or /sample_articles/1.json
   def update
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     if @article.update(article_params)
       redirect_to article_url(@article), notice: "#{t('activerecord.models.article')}を編集しました。"
     else
@@ -36,7 +36,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    @article = Article.find(params[:id])
+    @article = current_user.articles.find(params[:id])
     @article.destroy
     redirect_to articles_url, notice: "#{t('activerecord.models.article')}を削除しました。"
   end
@@ -49,5 +49,4 @@ class ArticlesController < ApplicationController
     def set_article
       # @article = Article.find(params[:id])
     end
-
 end
