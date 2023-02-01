@@ -18,14 +18,8 @@
         <td><%= article.content %></td>
         <td>
           <%= link_to '詳細', article, class: "btn btn-success" %>
-          <%= link_to '編集', edit_article_path(article), class: "btn btn-warning" %>
-          <%= link_to '削除', article, class: "btn btn-danger", method: :delete, data: { confirm: '削除しますか？' } %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to '新規作成', new_article_path %>
