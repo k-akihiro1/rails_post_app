@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'mypage/show'
   devise_for :users
   resources :sample_articles
   resources :articles
