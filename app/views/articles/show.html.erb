@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<div class="card">
-  <div class="card-header">
-    <%= @article.title %>
-  </div>
-  <div class="card-body">
-    <%= @article.content %>
-  </div>
-</div>
-<% if current_user.id == @article.user_id%>
-  <%= link_to '編集', edit_article_path(@article), class: "btn btn-warning" %>
-<% end %>
-<%= link_to '一覧', articles_path, class: "btn btn-secondary" %>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">タイトル</th>
+      <th scope="col">内容</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @article.title %></td>
+      <td><%= @article.content %></td>
+      <td>
+        <% if current_user.id == @article.user_id%>
+          <%= link_to '編集', edit_article_path(@article), class: "btn btn-warning" %>
+        <% end %>
+        <%= link_to '一覧', articles_path, class: "btn btn-secondary" %>
+      </td>
+    </tr>
+  <tbody>
+</table>
