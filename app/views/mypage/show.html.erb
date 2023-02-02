@@ -1,2 +1,23 @@
-<h1>Mypage#show</h1>
-<p>Find me in app/views/mypage/show.html.erb</p>
+<p id="notice"><%= notice %></p>
+
+<h1>マイページ</h1>
+
+<thead>
+  <tr>
+    <th scope="col">タイトル</th>
+    <th scope="col">内容</th>
+  </tr>
+</thead>
+
+<div class="card">
+  <div class="card-header">
+    <% @articles.each do |article| %>
+      <%= article.title %>
+      <%= article.content %>
+      <%= link_to '編集', edit_article_path(article), class: "btn btn-warning" %>
+      <%= link_to '詳細', article, class: "btn btn-success" %>
+
+    <% end %>
+
+  </div>
+</div>
