@@ -38,6 +38,15 @@ class ArticlesController < ApplicationController
     redirect_to articles_url, notice: "#{t('activerecord.models.article')}を削除しました。"
   end
 
+  def search
+    articles = Article.all
+    if params[:title].present?
+      @articles = articles.where("title like? ", "%#{params[:title]}%" )
+      redirect_to articles_path(@articles)
+    end
+
+  end
+
   private
     def article_params
       params.require(:article).permit(:title, :content)
