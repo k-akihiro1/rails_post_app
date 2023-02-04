@@ -41,8 +41,10 @@ class ArticlesController < ApplicationController
   def search
     articles = Article.all
     if params[:title].present?
-      @articles = articles.where("title like? ", "%#{params[:title]}%" )
-      redirect_to articles_path(@articles)
+      articles = articles.where("title like? ", "%#{params[:title]}%" )
+      @articles = articles.all.page(params[:page]).per(10)
+      # redirect_to articles_path(@articles)
+      render "index"
     end
 
   end
