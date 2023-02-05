@@ -9,7 +9,12 @@
   </thead>
   <tbody>
     <tr>
-      <td><%= @article.title %></td>
+      <td>
+        <%= @article.title %>
+        <% @article.tags.each do |tag| %>
+          <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
+        <% end %>
+      </td>
       <td><%= @article.content %></td>
       <td>
         <% if current_user.id == @article.user_id%>

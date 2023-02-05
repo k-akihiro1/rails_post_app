@@ -11,17 +11,21 @@
     </tr>
   </thead>
   <tbody>
-      <% @articles.each do |article| %>
-        <tr>
-          <td><%= article.title %></td>
-          <td><%= article.content %></td>
-          <td>
-            <%= link_to '編集', edit_article_path(article), class: "btn btn-warning" %>
-            <%= link_to '詳細', article, class: "btn btn-success" %>
-            <%= link_to '削除', article, class: "btn btn-danger", method: :delete, data: { confirm: '削除しますか?' } %>
-          </td>
-        </tr>
-      <% end %>
+    <% @articles.each do |article| %>
+      <tr>
+        <td>
+          <%= article.title %>
+          <% article.tags.each do |tag| %>
+            <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
+          <% end %>
+        </td>
+        <td><%= article.content %></td>
+        <td>
+          <%= link_to '詳細', article, class: "btn btn-success" %>
+          <%= link_to '削除', article, class: "btn btn-danger", method: :delete, data: { confirm: '削除しますか?' } %>
+        </td>
+      </tr>
+    <% end %>
 
   </tbody>
 </table>
